@@ -14,10 +14,16 @@
     
     <section id="form-section">
         <h2>Crea un Homenaje</h2>
-        <form id="create-homenaje-form">
+        <form id="create-homenaje-form" enctype="multipart/form-data">
+            <label for="nombre">Nombre del Fallecido</label>
             <input type="text" id="nombre" placeholder="Nombre del Fallecido" required>
+            
+            <label for="descripcion">Descripción</label>
             <textarea id="descripcion" placeholder="Escribe una dedicatoria..." required></textarea>
-            <input type="url" id="imagen" placeholder="URL de la Imagen (Opcional)">
+            
+            <label for="imagen">Sube una Imagen</label>
+            <input type="file" id="imagen" accept="image/*">
+            
             <button type="submit">Publicar Homenaje</button>
         </form>
     </section>
