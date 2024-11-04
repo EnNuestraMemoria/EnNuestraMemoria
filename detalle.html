@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Homenaje</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Memorial de Recuerdos</h1>
+        <p>Recordando con cariño a nuestros seres queridos</p>
+    </header>
+    
+    <section id="detalle-homenaje">
+        <div id="homenaje-info"></div>
+        <section id="comentarios-section">
+            <h2>Comentarios</h2>
+            <div id="comentarios-list"></div>
+            <form id="comentario-form">
+                <input type="text" id="autor" placeholder="Tu Nombre" required>
+                <textarea id="comentario" placeholder="Escribe un comentario" required></textarea>
+                <button type="submit">Añadir Comentario</button>
+            </form>
+        </section>
+    </section>
+
+    <script src="https://unpkg.com/@supabase/supabase-js"></script>
+    <script src="detalle.js"></script>
+</body>
+</html>
