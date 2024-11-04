@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorial</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Memorial Online</h1>
+    <form id="create-homenaje-form">
+        <input type="text" id="nombre" placeholder="Nombre del Fallecido" required>
+        <textarea id="descripcion" placeholder="Descripción o Homenaje" required></textarea>
+        <input type="url" id="imagen" placeholder="URL de la Imagen (Opcional)">
+        <button type="submit">Crear Homenaje</button>
+    </form>
+    <div id="homenajes-container"></div>
+    <script src="https://unpkg.com/@supabase/supabase-js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
