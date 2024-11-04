@@ -68,6 +68,8 @@ homenajeForm.addEventListener('submit', async (e) => {
     }
 });
 
+// Código mejorado en script.js
+
 // Cargar homenajes desde la base de datos
 async function cargarHomenajes() {
     const { data: homenajes, error } = await supabase
@@ -86,6 +88,7 @@ async function cargarHomenajes() {
                 <h3>${homenaje.nombre}</h3>
                 <p>${homenaje.descripcion}</p>
                 ${homenaje.imagen_url ? `<img src="${homenaje.imagen_url}" alt="Imagen de ${homenaje.nombre}">` : ''}
+                <a href="detalle.html?id=${homenaje.id}">Ver homenaje completo</a>
                 <small>Publicado el ${new Date(homenaje.fecha).toLocaleString()}</small>
             `;
             homenajesList.appendChild(homenajeDiv);
@@ -95,3 +98,4 @@ async function cargarHomenajes() {
 
 // Cargar homenajes al iniciar la página
 cargarHomenajes();
+
