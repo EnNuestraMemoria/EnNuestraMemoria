@@ -10,16 +10,47 @@ const descripcionInput = document.getElementById('descripcion');
 const imagenInput = document.getElementById('imagen');
 const homenajesList = document.getElementById('homenajes-list');
 
+// Subir imagen a Supabase Storage
+async function subirImagen(imagen) {
+    const nombreArchivo = `${Date.now()}_${imagen.name}`;
+    const { data, error } = await supabase.storage
+        .from('imagenes-homenajes')
+        .upload(nombreArchivo, imagen);
+
+    if (error) {
+        alert("Error al subir la imagen: " + error.message);
+        return null;
+    }
+
+    // Obtener la URL pública de la imagen
+    const { publicURL } = supabase.storage
+        .from('imagenes-homenajes')
+        .getPublicUrl(nombreArchivo);
+
+    return publicURL;
+}
+
 // Crear un homenaje
 homenajeForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+
     const nombre = nombreInput.value.trim();
     const descripcion = descripcionInput.value.trim();
-    const imagenUrl = imagenInput.value.trim();
+    const imagen = imagenInput.files[0];
+    let imagenUrl = '';
 
     if (!nombre || !descripcion) {
         alert("Por favor, completa los campos requeridos.");
         return;
+    }
+
+    // Si el usuario subió una imagen, la subimos a Supabase Storage
+    if (imagen) {
+        imagenUrl = await subirImagen(imagen);
+        if (!imagenUrl) {
+            alert("Error al subir la imagen.");
+            return;
+        }
     }
 
     const { data, error } = await supabase
