@@ -1,20 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memorial</title>
+    <title>Memorial Online</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Memorial Online</h1>
-    <form id="create-homenaje-form">
-        <input type="text" id="nombre" placeholder="Nombre del Fallecido" required>
-        <textarea id="descripcion" placeholder="Descripción o Homenaje" required></textarea>
-        <input type="url" id="imagen" placeholder="URL de la Imagen (Opcional)">
-        <button type="submit">Crear Homenaje</button>
-    </form>
-    <div id="homenajes-container"></div>
+    <header>
+        <h1>Memorial de Recuerdos</h1>
+        <p>Un espacio para recordar a nuestros seres queridos y compartir recuerdos.</p>
+    </header>
+    
+    <section id="form-section">
+        <h2>Crea un Homenaje</h2>
+        <form id="create-homenaje-form">
+            <input type="text" id="nombre" placeholder="Nombre del Fallecido" required>
+            <textarea id="descripcion" placeholder="Escribe una dedicatoria..." required></textarea>
+            <input type="url" id="imagen" placeholder="URL de la Imagen (Opcional)">
+            <button type="submit">Publicar Homenaje</button>
+        </form>
+    </section>
+    
+    <section id="homenajes-container">
+        <h2>Homenajes Recientes</h2>
+        <div id="homenajes-list"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Memorial Online. Todos los derechos reservados.</p>
+    </footer>
+
     <script src="https://unpkg.com/@supabase/supabase-js"></script>
     <script src="script.js"></script>
 </body>
